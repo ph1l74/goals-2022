@@ -1,0 +1,46 @@
+.lang-switcher {
+    grid-column: 7;
+    grid-row: 1;
+}
+
+.lang-switcher .lang {
+    display: inline-block;
+    margin-left: 10px;
+    position: relative;
+    color: var(--grey);
+}
+
+.lang::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 0%;
+    height: 4px;
+    bottom: -4px;
+    background-color: var(--accent);
+    transition: all 0.1s ease-out;
+}
+
+.lang:nth-child(1):after {
+    right: 0px;
+}
+
+.lang:nth-child(2):after {
+    left: 0px;
+}
+
+.lang:hover::after {
+    width: 100%;
+}
+
+.lang.active {
+    color: var(--light);
+}
+
+.lang.active::after {
+    width: 100%;
+}
+
+.lang:hover {
+    cursor: pointer;
+}

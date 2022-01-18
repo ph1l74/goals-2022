@@ -1,0 +1,40 @@
+.menu-item {
+    font-weight: 600;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: right;
+    margin-bottom: 20px;
+    color: var(--grey);
+    position: relative;
+    width: fit-content;
+}
+
+.menu-item::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 0%;
+    height: 4px;
+    bottom: -4px;
+    right: 0px;
+    background-color: var(--accent);
+    transition: all 0.1s ease-out;
+}
+
+.menu-item:hover::after {
+    width: 100%;
+}
+
+.menu-item.active {
+    color: var(--light);
+}
+
+.menu-item.active::after {
+    width: 100%;
+}
+
+.menu-item:hover {
+    cursor: pointer;
+}

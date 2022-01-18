@@ -1,0 +1,15 @@
+{
+  "langRU": "РУС",
+  "langEN": "АНГ",
+  "buttonBack": "Назад",
+  "buttonNext": "Вперёд",
+  "categories": {
+    "books": "Книги",
+    "movies": "Фильмы",
+    "games": "Игры",
+    "lectures": "Лекции",
+    "music": "Музыка",
+    "interviews": "Интервью",
+    "projects": "Проекты"
+  }
+}

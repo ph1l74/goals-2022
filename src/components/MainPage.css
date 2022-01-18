@@ -1,0 +1,24 @@
+:root {
+    --light: #EDF2F4;
+    --grey: #8D99AE;
+    --dark: #2B2D42;
+    --accent: #EF233C;
+}
+
+body {
+    background-color: var(--dark);
+    font-family: Manrope;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--light);
+}
+
+
+.main-page {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 40px 40px auto;
+    column-gap: 50px;
+}

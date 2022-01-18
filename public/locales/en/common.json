@@ -1,0 +1,15 @@
+{
+  "langRU": "RUS",
+  "langEN": "ENG",
+  "buttonBack": "Back",
+  "buttonNext": "Next",
+  "categories": {
+    "books": "Books",
+    "movies": "Movies",
+    "games": "Games",
+    "lectures": "Lectures",
+    "music": "Music",
+    "interviews": "Interviews",
+    "projects": "Projects"
+  }
+}
