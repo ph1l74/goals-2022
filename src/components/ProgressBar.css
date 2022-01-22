@@ -1,10 +1,9 @@
 .progress-bar {
-    grid-column: 1/6;
+    grid-column: 1/-1;
     grid-row: 1;
-    width: 50%;
+    width: calc(50% - 1em);
     height: 2em;
     background-color: var(--light);
-    padding: 9px 0px 0px 12px;
     position: relative;
 }
 
@@ -20,6 +19,7 @@
 .progress-bar .title {
     color: var(--dark);
     position: absolute;
+    margin: 4px 0px 0px 12px;
 }
 
 @keyframes progressWidth {

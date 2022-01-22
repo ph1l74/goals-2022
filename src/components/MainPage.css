@@ -20,10 +20,3 @@ body {
     grid-template-rows: 40px 40px auto;
     column-gap: 48px;
 }
-
-.content-flex {
-    /* grid-column: 1/6;
-    grid-row: 2; */
-    /* display: flex;
-    flex-wrap: wrap; */
-}
