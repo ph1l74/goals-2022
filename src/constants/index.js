@@ -1,4 +1,6 @@
 // Initial Store State
+export const COLLECTION_NAME = 'categories';
+
 export const categories = {
     CAT_BOOKS: 'CAT_BOOKS',
     CAT_MOVIES: 'CAT_MOVIES',

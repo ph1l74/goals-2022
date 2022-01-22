@@ -5,7 +5,7 @@ import Menu from './Menu';
 import MenuItem from './MenuItem';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { getData } from '../store/thunks';
+import { getAllData, getDataByName } from '../store/thunks';
 import '../i18n';
 import './MainPage.css';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -21,7 +21,7 @@ const MainPage = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getData())
+        dispatch(getDataByName('books'))
     });
 
 
