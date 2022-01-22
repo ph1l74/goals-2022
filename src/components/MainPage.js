@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Dashboard from './Dashboard';
 import Header from './Header';
 import Menu from './Menu';
 import MenuItem from './MenuItem';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { getData } from '../store/thunks';
 import '../i18n';
 import './MainPage.css';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -16,26 +18,12 @@ const MainPage = () => {
 
     const { t } = useTranslation('common');
 
-    const data = {
-        books: {
-            goal: 10,
-            items: []
-        },
-        movies: {
-            goal: 50,
-            items: [
-                { title: 'Mila (2020)', url: 'https://www.imdb.com/title/tt10110614/', rating: 7 },
-                { title: 'Colectiv (2019)', url: 'https://www.imdb.com/title/tt10706602/', rating: 8 },
-                { title: 'Самый лучший день (2015)', url: 'https://www.imdb.com/title/tt5083604/', rating: 5 },
-                { title: 'Mila (2020)', url: 'https://www.imdb.com/title/tt10110614/', rating: 7 },
-                { title: 'Colectiv (2019)', url: 'https://www.imdb.com/title/tt10706602/', rating: 8 },
-                { title: 'Самый лучший день (2015)', url: 'https://www.imdb.com/title/tt5083604/', rating: 5 },
-                { title: 'Mila (2020)', url: 'https://www.imdb.com/title/tt10110614/', rating: 7 },
-                { title: 'Colectiv (2019)', url: 'https://www.imdb.com/title/tt10706602/', rating: 8 },
-                { title: 'Самый лучший день (2015)', url: 'https://www.imdb.com/title/tt5083604/', rating: 5 }
-            ]
-        }
-    }
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getData())
+    });
+
 
     const menuItems = [
         { category: 'books' },
@@ -69,16 +57,14 @@ const MainPage = () => {
                 </Menu>
             </Dashboard>
             <Content>
-                {curCat === 'movies' ?
+                {/* {curCat === 'movies' ?
                     <>
                         <ProgressBar goal={data[curCat].goal} done={data[curCat].items.length} title='moviesDone: ' />
-                        {/* <div className='content-flex'> */}
-                            {data[curCat].items.map((item, index) => (
-                                <ItemBasic key={index} title={item.title} description={item.rating} index={index} />
-                            ))}
-                        {/* </div> */}
+                        {data[curCat].items.map((item, index) => (
+                            <ItemBasic key={index} title={item.title} description={item.rating} index={index} />
+                        ))}
                     </> :
-                    null}
+                    null} */}
             </Content>
         </div>
     )
