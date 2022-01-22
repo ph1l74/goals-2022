@@ -1,0 +1,41 @@
+.item-basic {
+    width: calc(24% - 14px);
+    display: inline-block;
+    background: var(--light);
+    color: var(--dark);
+    padding: 8px 0px 4px 12px;
+    margin: 28px 14px 0px 0px;
+    position: relative;
+    /* max-height: 58px; */
+    overflow: hidden;
+    grid-row: 2;
+}
+
+.item-basic .title {
+    margin-bottom: 4px;
+    overflow: hidden;
+}
+
+.item-basic .description {
+    font-size: .75em;
+    overflow: hidden;
+    margin-bottom: .25em;
+}
+
+.item-basic::after {
+    animation: appearLeftWidth 0.25s ease-out;
+    display: inline-block;
+    content: '';
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    height: 4px;
+    background-color: var(--accent);
+    position: absolute;
+}
+
+@keyframes appearLeftWidth {
+    from {
+        width: 0%;
+    }
+}

@@ -1,5 +1,29 @@
-.content {
-    grid-column: 1;
-    grid-row: 3;
-    justify-self: end;
+.progress-bar {
+    grid-column: 1/6;
+    grid-row: 1;
+    width: 50%;
+    height: 2em;
+    background-color: var(--light);
+    padding: 9px 0px 0px 12px;
+    position: relative;
+}
+
+.progress-bar .progress {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    background-color: var(--accent);
+    animation: progressWidth 0.25s ease-out;
+}
+
+.progress-bar .title {
+    color: var(--dark);
+    position: absolute;
+}
+
+@keyframes progressWidth {
+    from {
+        width: 0%;
+    }
 }
