@@ -2,8 +2,8 @@
 export const COLLECTION_NAME = 'categories';
 
 export const categories = {
-    CAT_BOOKS: 'CAT_BOOKS',
-    CAT_MOVIES: 'CAT_MOVIES',
+    CAT_BOOKS: 'books',
+    CAT_MOVIES: 'movies',
     CAT_GAMES: 'CAT_GAMES',
     CAT_LECTURES: 'CAT_LECTURES',
     CAT_MUSIC: 'CAT_MUSIC',
@@ -12,5 +12,7 @@ export const categories = {
 }
 
 export const initState = {
-    activeCategory: categories.CAT_BOOKS
+    currentCategory: categories.CAT_BOOKS,
+    isLoading: true,
+    data: {}
 };

@@ -11,5 +11,14 @@
     "music": "Music",
     "interviews": "Interviews",
     "projects": "Projects"
+  },
+  "done": {
+    "books": "Books read :",
+    "movies": "Movies watched :",
+    "games": "Games completed :",
+    "lectures": "Lectures attended :",
+    "music": "Music albums listened :",
+    "interviews": "Interviews watched :",
+    "projects": "Projects implemented :"
   }
 }

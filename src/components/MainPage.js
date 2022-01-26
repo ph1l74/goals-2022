@@ -6,66 +6,97 @@ import MenuItem from './MenuItem';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllData, getDataByName } from '../store/thunks';
+import { setCurrentCategory } from '../store/actions';
+import { categories } from '../constants'
 import '../i18n';
 import './MainPage.css';
 import LanguageSwitcher from './LanguageSwitcher';
 import Content from './Content';
 import ProgressBar from './ProgressBar';
 import ItemBasic from './ItemBasic';
+import Loader from './Loader';
+import ItemMovie from './ItemMovie';
 
 
 const MainPage = () => {
 
     const { t } = useTranslation('common');
-
     const dispatch = useDispatch();
+    const isLoading = useSelector(state => state.isLoading);
+    const currentCategory = useSelector(state => state.currentCategory);
+    const data = useSelector(state => state.data);
+    const [firstLoad, setFirstLoad] = useState(true);
+    const [menuItems, setMenuItems] = useState([]);
 
     useEffect(() => {
-        dispatch(getDataByName('books'))
-    });
+        if (firstLoad) {
+            dispatch(getAllData());
+            setFirstLoad(false);
+        }
 
+        setMenuItems(Object.keys(data))
 
-    const menuItems = [
-        { category: 'books' },
-        { category: 'movies' },
-        { category: 'games' },
-        { category: 'lectures' },
-        { category: 'music' },
-        { category: 'interviews' },
-        { category: 'projects' }
-    ];
-
-    const [curCat, setCurCat] = useState(menuItems[0].category);
+    }, [firstLoad, data, currentCategory, dispatch]);
 
     const onMenuItemClick = (category) => {
-        setCurCat(category);
+        dispatch(setCurrentCategory(category))
     }
 
     return (
         <div className='main-page'>
             <LanguageSwitcher />
             <Header>2022 Goals</Header>
-            <Dashboard>
-                <Menu>
-                    {menuItems.map((item, i) => (
-                        <MenuItem key={i}
-                            onClick={() => { onMenuItemClick(item.category) }}
-                            addClass={item.category === curCat ? 'active' : null}>
-                            {t(`common:categories.${item.category}`)}
-                        </MenuItem>
-                    ))}
-                </Menu>
-            </Dashboard>
-            <Content>
-                {/* {curCat === 'movies' ?
-                    <>
-                        <ProgressBar goal={data[curCat].goal} done={data[curCat].items.length} title='moviesDone: ' />
-                        {data[curCat].items.map((item, index) => (
-                            <ItemBasic key={index} title={item.title} description={item.rating} index={index} />
-                        ))}
-                    </> :
-                    null} */}
-            </Content>
+            {isLoading ?
+                <Loader />
+                : <>
+                    <Dashboard>
+                        <Menu>
+                            {menuItems.map((item, i) => (
+                                <MenuItem key={i}
+                                    onClick={() => { onMenuItemClick(item) }}
+                                    addClass={item === currentCategory ? 'active' : null}>
+                                    {t(`common:categories.${item}`)}
+                                </MenuItem>
+                            ))}
+                        </Menu>
+                    </Dashboard>
+                    <Content>
+                        {data[currentCategory] && data[currentCategory].goal ?
+                            <ProgressBar
+                                key={`${currentCategory}_progressBar`}
+                                goal={data[currentCategory].goal}
+                                done={data[currentCategory].items.length || 0}
+                                title={t(`common:done.${currentCategory}`)} />
+                            : null
+                        }
+                        {data[currentCategory] && data[currentCategory].items && data[currentCategory].items.length > 0 ?
+                            <>
+                                {data[currentCategory].items.map((item, index) => {
+                                    console.log(item.url)
+                                    return (
+                                        currentCategory === categories.CAT_MOVIES ?
+                                            <ItemMovie
+                                                key={`${currentCategory}_${index}`}
+                                                title={item.title}
+                                                rating={item.rating}
+                                                link={item.url} />
+                                            :
+                                            <ItemBasic
+                                                key={`${currentCategory}_${index}`}
+                                                title={item.title}
+                                                description={item.description}
+                                                link={item.url || null}
+                                            />
+                                    )
+                                }
+                                )}
+                            </>
+                            :
+                            null
+                        }
+                    </Content>
+                </>
+            }
         </div>
     )
 }

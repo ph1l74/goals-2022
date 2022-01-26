@@ -4,5 +4,5 @@
     display: grid;
     padding-top: 40px;
     grid-gap: 2em;
-    grid-template: repeat(auto-fill, minmax(3em, auto))/ repeat(auto-fill, 250px)
+    grid-template: repeat(auto-fill, minmax(3em, auto))/ repeat(auto-fill, minmax(250px, auto))
 }

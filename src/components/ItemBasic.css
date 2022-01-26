@@ -4,16 +4,22 @@
     color: var(--dark);
     position: relative;
     overflow: hidden;
+    transition: transform 0.25s ease-out;
+}
+
+.item-basic:hover {
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 .item-basic .title {
-    margin: 4px 0px 0px 4px;
+    margin: 0.25em 0em 0em 0.25em;
 }
 
 .item-basic .description {
     font-size: .75em;
     overflow: hidden;
-    margin: 0px 0px 4px 4px
+    margin: 0em 0em 0.5em 0.25em;
 }
 
 .item-basic::after {

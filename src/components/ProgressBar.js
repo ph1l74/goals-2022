@@ -2,12 +2,8 @@ import './ProgressBar.css';
 
 const ProgressBar = ({ title, goal, done }) => {
 
-
-    console.log(goal, done)
-
     const getProgress = (goal, done) =>
         Math.floor(done / goal * 100)
-
 
     return (
         <div className='progress-bar'>

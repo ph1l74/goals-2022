@@ -19,7 +19,7 @@
 .progress-bar .title {
     color: var(--dark);
     position: absolute;
-    margin: 4px 0px 0px 12px;
+    margin: 0.25em 0px 0px 1em;
 }
 
 @keyframes progressWidth {

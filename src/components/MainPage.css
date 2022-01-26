@@ -5,12 +5,20 @@
     --accent: #EF233C;
 }
 
+
 body {
     background-color: var(--dark);
-    font-family: Manrope;
+    font-family: 'Stem Regular';
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
     color: var(--light);
+    width: 100vw;
+    overflow: hidden;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: var(--dark);
 }
 
 
