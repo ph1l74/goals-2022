@@ -1,9 +1,9 @@
 import './ItemBasic.css';
 
-const ItemBasic = ({ title, description, link }) => {
+const ItemBasic = ({ title, description, link, actual }) => {
 
     return (
-        <a className='item-basic' href={link} target={`_blank`}>
+        <a className={actual ? 'item-basic' : 'item-basic not-actual'} href={link} target={`_blank`}>
             <div className='title'>{title}</div>
             <div className='description'>{description}</div>
         </a>

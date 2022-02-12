@@ -65,27 +65,28 @@ const MainPage = () => {
                             <ProgressBar
                                 key={`${currentCategory}_progressBar`}
                                 goal={data[currentCategory].goal}
-                                done={data[currentCategory].items.length || 0}
+                                done={data[currentCategory].items ? data[currentCategory].items.length : 0}
                                 title={t(`common:done.${currentCategory}`)} />
                             : null
                         }
                         {data[currentCategory] && data[currentCategory].items && data[currentCategory].items.length > 0 ?
                             <>
                                 {data[currentCategory].items.map((item, index) => {
-                                    console.log(item.url)
                                     return (
                                         currentCategory === categories.CAT_MOVIES ?
                                             <ItemMovie
                                                 key={`${currentCategory}_${index}`}
                                                 title={item.title}
                                                 rating={item.rating}
-                                                link={item.url} />
+                                                link={item.url}
+                                            />
                                             :
                                             <ItemBasic
                                                 key={`${currentCategory}_${index}`}
                                                 title={item.title}
                                                 description={item.description}
                                                 link={item.url || null}
+                                                actual={item.actual}
                                             />
                                     )
                                 }

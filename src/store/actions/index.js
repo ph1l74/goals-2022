@@ -8,12 +8,14 @@ export const setCurrentCategory = (value) => {
     }
 }
 
+
 export const setLoading = (value) => {
     return {
         type: types.SET_IS_LOADING,
         value
     }
 }
+
 
 export const setDoc = (key, value) => {
     return {

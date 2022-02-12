@@ -5,6 +5,7 @@
     height: 2em;
     background-color: var(--light);
     position: relative;
+    padding: 0.5em 0.5em 0 0.5em;
 }
 
 .progress-bar .progress {
@@ -19,7 +20,6 @@
 .progress-bar .title {
     color: var(--dark);
     position: absolute;
-    margin: 0.25em 0px 0px 1em;
 }
 
 @keyframes progressWidth {

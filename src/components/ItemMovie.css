@@ -7,6 +7,10 @@
     transition: transform 0.25s ease-out;
 }
 
+.item-movie.not-actual {
+    background-color: var(--grey);
+}
+
 .item-movie:hover {
     transform: scale(1.05);
     cursor: pointer;
