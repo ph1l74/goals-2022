@@ -27,3 +27,17 @@
         width: 0%;
     }
 }
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+    .progress-bar {
+        grid-column: 1/5;
+        grid-row: 1;
+        width: calc(100% - 2em);
+        height: 2em;
+        background-color: var(--light);
+        position: relative;
+        padding: 0.5em 0.5em 0 0.5em;
+    }
+}

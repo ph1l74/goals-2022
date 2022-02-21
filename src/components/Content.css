@@ -6,3 +6,16 @@
     grid-gap: 2em;
     grid-template: repeat(auto-fill, minmax(3em, auto))/ repeat(auto-fill, minmax(250px, auto))
 }
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+    .content {
+        grid-column: 1/5;
+        grid-row: 3;
+        display: grid;
+        padding-top: 20px;
+        grid-gap: 2em;
+        grid-template: repeat(auto-fill, minmax(150px, auto))/ repeat(auto-fill, minmax(calc(100% - 1em), auto))
+    }
+}

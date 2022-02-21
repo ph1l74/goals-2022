@@ -28,3 +28,14 @@ a, a:hover, a:focus, a:active {
     grid-template-rows: 40px 40px auto;
     column-gap: 48px;
 }
+
+
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+    .main-page {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 50px 50px 50px repeat(auto-fill, 100%);
+        grid-column-gap: 24px;
+    }
+}
